@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JJP_oficial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .titulo {
+            font-weight: bold;
+        }
+
+        .correspondente {
+            color: #666;
+            white-space: pre-line;
+        }
+
+        /* Estilos adicionais */
+        nav {
+            background-color: #423131;
+            color: #fff;
+
+            padding: 10px;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Estilização dos links na barra de navegação quando passar o mouse por cima */
+        .navbar a:hover {
+          color: #fff;
+          background-color: #555;
+        }
+
+        h2, h3, h4 {
+            color: #333;
+            font-family: "Times"
+        }
+
+        footer {
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Estilos para os títulos */
+        .titulo {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Estilos para os dados */
+        .dados {
+            margin-bottom: 20px;
+        }
+         #carrossel-imagens {
+            width: 1450px;
+            max-width: 10000px;
+            margin: 0 auto;
+        }
+
+        .owl-carousel .owl-stage {
+            display: flex;
+        }
+
+        .owl-carousel .owl-stage-outer {
+            overflow: hidden;
+        }
+
+        .owl-carousel .owl-item {
+            float: left;
+        }
+
+        .owl-prev, .owl-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .logo-container {
+            position: absolute;
+            right: 25px; /* Ajuste conforme necessário para posicionar a imagem */
+            top: 10px;
+            
+        }
+        .content-wrapper {
+          margin: 20px;
+          margin-right: 20px; /* Adicione a margem desejada aqui */
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg"> 
+        <ul>
+            <h1>Bem vindos à Jornada de Jovens da Porciúncula Niterói! ✟ </h1>
+            <div class="logo-container">
+              <img src="{{ url_for('static', filename='logob.png') }}" alt="Logo" style="width: 100px;">
+            </div>
+            <li><a href="/">Home</a></li>
+            <li><a href="https://www.instagram.com/jjp_oficial/">Juventude e Igreja</a></li>
+            <li><a href="https://www.instagram.com/stories/highlights/18187509778281540/">Santos Católicos</a></li>
+            <li><a href="https://www.instagram.com/jjp_oficial/">Seja Voluntário</a></li>
+            
+            
+        </ul>
+    </nav>
+
+      
+    <div class="content-wrapper"> 
+      
+      
+      <div id="carrossel-imagens" class="owl-carousel owl-theme">
+          {% for i in range(1, 27) %}
+              <div class="item">
+                  <img src="{{ url_for('static', filename='{}.jpg'.format(i)) }}" alt="Imagem {{ i }}">
+              </div>
+          {% endfor %}
+      </div>
+
+      <h2><span class="titulo">Liturgia Diária</span></h2>
+      
+      <!-- Usando a tag <span> para a segunda parte da informação e aplicando a classe "segunda-parte" para remover o negrito -->
+      <h5>
+          <span class="correspondente">Data: {{ titulos_correspondentes[0][1] }} | </span>
+          <span class="same-line correspondente">{{ titulos_correspondentes[1][1] }} | </span>
+          <span class="same-line correspondente">Cor: {{ titulos_correspondentes[2][1] }}</span>
+      </h5>
+      <br>
+      <h4><span class="titulo">Primeira Leitura:</span></h4>
+      <p><font size="4" >{{ titulos_correspondentes[6][1] |safe}}</font></p>
+      
+      <br>
+      <h4><span class="titulo">Segunda Leitura:</span></h4>
+      <p><font size="4" >{{ titulos_correspondentes[7][1] |safe}}</font></p>
+      <br>
+      <h4><span class="titulo">Salmo:</span></h4>
+      <p><font size="4" >{{ titulos_correspondentes[8][1] |safe}}</font></p>
+      <br>
+      <h4><span class="titulo">Evangelho:</span></h4>
+      <p><font size="4" >{{ titulos_correspondentes[9][1] |safe}}</font></p>
+    </div> 
+    <div class="item">
+      <img src="static/banner1.jpg"  alt="banner1">
+
+    </div>
+
+    <div class="content-wrapper"> 
+      <h4 id="juventude">Juventude e Igreja</h4>
+      
+      <p id="juventude">O jovem católico é um jovem normal, cheio de sonhos e com o coração elevado para o alto. Um jovem que tem seu coração ancorado em Deus, mas que não deixa de se questionar, de avançar e revolucionar. A identidade do jovem cristão está diretamente ligada aos anseios do seu coração, o que faz dele alguém capaz de impactar, de transformar, de contagiar e mudar as realidades. O jovem possui em si uma capacidade enorme de transformação, mas o jovem católico, com o auxílio da graça de Deus, possuiu nele a graça de formar um mundo novo, um mundo temente a Deus.</p>
+
+      <h4 id="doacoes">Doações</h4>
+      <p id="doacoes">A secretaria da igreja está prontamente disponível para receber doações e prestar atendimento de segunda a sexta-feira, das 8h às 12h e das 13h às 17h. Aos sábados, o atendimento ocorre das 8h às 12h. Se você deseja contribuir com sua doação, seja ela em alimentos, roupas ou qualquer outra forma de auxílio, pode dirigir-se até o nosso endereço na Avenida Roberto Silveira, 265, Icaraí, CEP: 24230-151, em Niterói, Rio de Janeiro. Caso prefira, entre em contato conosco pelos telefones (21) 3620-2267 ou (21) 3620-3367 para obter mais informações ou esclarecer dúvidas. Sua colaboração é muito valiosa para a nossa missão de auxiliar aqueles que mais necessitam. Que Deus abençoe a sua generosidade!</p>
+      
+    </div> 
+
+    <footer>
+        <p>
+            Visite nosso perfil no Instagram:
+            <a href="https://www.instagram.com/jjp_oficial/">jjp_oficial</a>
+        </p>
+    </footer>
+
+    <!-- Adicione os scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        // Inicialize o Owl Carousel após o carregamento da página
+        $(document).ready(function(){
+            $('#carrossel-imagens').owlCarousel({
+                items: 6, // Mostrar 6 imagens lado a lado
+                loop: true, // Repetir o carrossel em loop
+                margin: 10, // Espaçamento entre os slides
+                nav: false, // Mostrar botões de navegação (setas)
+                autoplay: true, // Ativar autoplay
+                autoplayTimeout: 3000, // Tempo de troca entre os slides (3 segundos)
+                responsive: {
+                    0: {
+                        items: 1 // Em telas menores, mostrar apenas 1 slide por vez
+                    },
+                    576: {
+                        items: 3 // Em telas com largura de 576px ou mais, mostrar 3 slides por vez
+                    },
+                    992: {
+                        items: 6 // Em telas com largura de 992px ou mais, mostrar 6 slides por vez
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
