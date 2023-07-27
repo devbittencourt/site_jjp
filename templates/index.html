@@ -86,9 +86,9 @@
         .dados {
             margin-bottom: 20px;
         }
-         #carrossel-imagens {
-            width: 1450px;
-            max-width: 10000px;
+        #carrossel-imagens {
+            width: 100%;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -118,6 +118,16 @@
         .content-wrapper {
           margin: 20px;
           margin-right: 20px; /* Adicione a margem desejada aqui */
+        }
+        .banner-imagens {
+            max-width: 100%;
+            overflow: hidden;
+            text-align: center; /* Centralizar a imagem horizontalmente */
+        }
+
+        .banner-imagens img {
+            width: 100%; /* A imagem ocupa 100% da largura da div */
+            height: auto; /* Mantém a proporção original da imagem */
         }
         
     </style>
@@ -173,7 +183,7 @@
       <h4><span class="titulo">Evangelho:</span></h4>
       <p><font size="4" >{{ titulos_correspondentes[9][1] |safe}}</font></p>
     </div> 
-    <div class="item">
+    <div class="banner-imagens">
       <img src="static/banner1.jpg"  alt="banner1">
 
     </div>
@@ -202,27 +212,24 @@
 
     <script>
         // Inicialize o Owl Carousel após o carregamento da página
-        $(document).ready(function(){
-            $('#carrossel-imagens').owlCarousel({
-                items: 6, // Mostrar 6 imagens lado a lado
-                loop: true, // Repetir o carrossel em loop
-                margin: 10, // Espaçamento entre os slides
-                nav: false, // Mostrar botões de navegação (setas)
-                autoplay: true, // Ativar autoplay
-                autoplayTimeout: 3000, // Tempo de troca entre os slides (3 segundos)
-                responsive: {
-                    0: {
-                        items: 1 // Em telas menores, mostrar apenas 1 slide por vez
-                    },
-                    576: {
-                        items: 3 // Em telas com largura de 576px ou mais, mostrar 3 slides por vez
-                    },
-                    992: {
-                        items: 6 // Em telas com largura de 992px ou mais, mostrar 6 slides por vez
-                    }
-                }
-            });
+      $(document).ready(function(){
+        $('#carrossel-imagens').owlCarousel({
+              items: 1, // Mostrar apenas 1 slide por vez em telas menores
+              loop: true,
+              margin: 10,
+              nav: false,
+              autoplay: true,
+              autoplayTimeout: 3000,
+              responsive: {
+                  576: {
+                      items: 3 // Em telas com largura de 576px ou mais, mostrar 3 slides por vez
+                  },
+                  992: {
+                      items: 6 // Em telas com largura de 992px ou mais, mostrar 6 slides por vez
+                  }
+              }
         });
+      });
     </script>
 </body>
 </html>
